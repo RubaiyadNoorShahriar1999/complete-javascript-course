@@ -5,10 +5,11 @@ const playerElement2 = document.querySelector('.player--1');
 const scoreElement1 = document.getElementById('score--0');
 const scoreElement2 = document.getElementById('score--1');
 const diceElement = document.querySelector('.dice');
-const rollBtn = document.querySelector('.btn--roll');
 const currentElement1 = document.querySelector('#current--0');
 const currentElement2 = document.querySelector('#current--1');
+const rollBtn = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
+const btnNew = document.querySelector('.btn--new');
 
 scoreElement1.textContent = 0;
 scoreElement2.textContent = 0;
@@ -62,4 +63,21 @@ btnHold.addEventListener('click', function () {
       switchPlayer();
     }
   }
+});
+
+btnNew.addEventListener('click', function () {
+  scores[0] = 0;
+  scores[1] = 0;
+  currentScore = 0;
+  playerNumber = 0;
+  playing = true;
+  scoreElement1.textContent = 0;
+  scoreElement2.textContent = 0;
+  currentElement1.textContent = 0;
+  currentElement2.textContent = 0;
+  diceElement.classList.add('hidden');
+  playerElement1.classList.add('player--active');
+  document
+    .querySelector(`.player--${playerNumber}`)
+    .classList.remove(`player--winner`);
 });
